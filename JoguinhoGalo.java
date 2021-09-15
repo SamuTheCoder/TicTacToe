@@ -27,8 +27,11 @@ public class JoguinhoGalo {
             }
 
             if (opt == 1){
+                TicTac game = new TicTac();
+                
                 while(game.IsOver()){
-                    TicTac game = new TicTac();
+                    System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXX");
+
                     System.out.println("1|2|3");
                     System.out.println("------");
                     System.out.println("4|5|6");
@@ -36,24 +39,18 @@ public class JoguinhoGalo {
                     System.out.println("7|8|9");
                     
                     System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                    
                     game.PrintGame();
 
-                    if(choosePlayer == 0 || choosePlayer % 2 == 0) System.out.println("Player 1's time to play!");
-                    else System.out.print("Player 2's time to play!");
+                    if(choosePlayer == 0) System.out.println("Player 1's time to play!");
+                    else System.out.println("Player 2's time to play!");
 
                     System.out.print("Choose a play from 0 to 9:");
                     play = sc.nextInt();
 
-                    if(play <= 3) game.ChangeUp(play);
-                    if(play <= 6 && play >=3) game.ChangeMid(play);
-                    if(play <= 9 && play >= 6) game.ChangeLow(play);
-                    
+                    game.Change(play, choosePlayer);                   
                     if(game.IsOver()) System.out.println("Player " + choosePlayer + " has won the game!");
-                    
-                    if(choosePlayer == 0) choosePlayer = 1; continue;
-                    if(choosePlayer == 1) choosePlayer = 0; continue; 
                 }          
-            } else if (opt == 2){
 
             } else return;
         }
