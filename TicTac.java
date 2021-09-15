@@ -8,18 +8,18 @@ public class TicTac{
     
     //Constructor
     public TicTac(){
-        up = " |  | ";
-        mid = up;
-        down = up;
+        up = "1|2|3";
+        mid = "4|5|6";
+        down = "7|8|9";
         points1 = points2 = 0;
     }
 
     //PrintGame: Prints the game in the current situation
     static void PrintGame(){
         System.out.println(up);
-        System.out.println("------");
+        System.out.println("-----");
         System.out.println(mid);
-        System.out.println("------");
+        System.out.println("-----");
         System.out.println(down);
     } 
 
