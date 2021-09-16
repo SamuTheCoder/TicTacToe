@@ -15,7 +15,8 @@ public class TicTac{
         for(int rows = 0; rows < 3; rows++){
             for(int collumns = 0; collumns < 3; collumns++){
                 System.out.print(positions[rows][collumns]);
-                if(collumns != 2) System.out.print("|\n");
+                if(collumns != 2) System.out.print("|");
+                else System.out.println();
             }
             System.out.println("-----");
         }
@@ -65,17 +66,36 @@ public class TicTac{
     }
 
     boolean IsOver(){
-        if(positions[0][0] == positions[1][0] && positions[1][0] == positions[2][0]) return true;
-        if(positions[0][1] == positions[1][1] && positions[1][1] == positions[2][1]) return true;
-        if(positions[0][2] == positions[1][2] && positions[1][2] == positions[2][2]) return true;  
+        /*if((positions[0][0] == positions[1][0] && positions[1][0] == positions[2][0]) && (positions[0][0] == 'X' || positions[0][0] == 'O')) return true;
+        if((positions[0][1] == positions[1][1] && positions[1][1] == positions[2][1]) && (positions[0][1] == 'X' || positions[0][1] == 'O')) return true;
+        if((positions[0][2] == positions[1][2] && positions[1][2] == positions[2][2]) && (positions[0][2] == 'X' || positions[0][2] == 'O')) return true;  
         
-        if(positions[0][0] == positions[0][1] && positions[0][1] == positions[0][2]) return true;
-        if(positions[1][0] == positions[1][1] && positions[1][1] == positions[1][2]) return true;
-        if(positions[2][0] == positions[2][1] && positions[2][1] == positions[2][2]) return true;
+        if((positions[0][0] == positions[0][1] && positions[0][1] == positions[0][2]) && (positions[0][0] == 'X' || positions[0][0] == 'O')) return true;
+        if((positions[1][0] == positions[1][1] && positions[1][1] == positions[1][2]) && (positions[1][0] == 'X' || positions[1][0] == 'O')) return true;
+        if((positions[2][0] == positions[2][1] && positions[2][1] == positions[2][2]) && (positions[2][0] == 'X' || positions[2][0] == 'O')) return true;
 
-        if(positions[0][0] == positions[1][1] && positions[1][1] == positions[2][2]) return true;
-        if(positions[2][1] == positions[1][1] && positions[1][1] == positions[0][2]) return true;
+        if((positions[0][0] == positions[1][1] && positions[1][1] == positions[2][2]) && (positions[0][0] == 'X' || positions[0][0] == 'O')) return true;
+        if((positions[2][1] == positions[1][1] && positions[1][1] == positions[0][2]) && (positions[2][1] == 'X' || positions[2][1] == 'O')) return true;
+        */
+        if((positions[0][0] == 'X' && positions[1][0] == 'X' && positions[2][0] == 'X') 
+            || (positions[0][0] == 'O' && positions[1][0] == 'O' && positions[2][0] == 'O')) return true;
+        if((positions[0][1] == 'X' && positions[1][1] == 'X' && positions[2][1] == 'X') 
+            || (positions[0][1] == 'O' && positions[1][1] == 'O' && positions[2][1] == 'O')) return true;
+        if((positions[0][2] == 'X' && positions[1][2] == 'X' && positions[2][2] == 'X') 
+            || (positions[0][2] == 'O' && positions[1][2] == 'O' && positions[2][2] == 'O')) return true;
 
+        if((positions[0][0] == 'X' && positions[0][1] == 'X' && positions[0][2] == 'X') 
+            || (positions[0][0] == 'O' && positions[0][1] == 'O' && positions[0][2] == 'O')) return true;
+        if((positions[1][0] == 'X' && positions[1][1] == 'X' && positions[1][2] == 'X') 
+            || (positions[1][0] == 'O' && positions[1][1] == 'O' && positions[1][2] == 'O')) return true;
+        if((positions[2][0] == 'X' && positions[2][1] == 'X' && positions[2][2] == 'X') 
+            || (positions[2][0] == 'O' && positions[2][1] == 'O' && positions[2][2] == 'O')) return true;
+
+        if((positions[0][0] == 'X' && positions[1][1] == 'X' && positions[2][2] == 'X') 
+            || (positions[0][0] == 'O' && positions[1][1] == 'O' && positions[2][2] == 'O')) return true;
+        if((positions[0][2] == 'X' && positions[1][1] == 'X' && positions[2][0] == 'X') 
+            || (positions[0][2] == 'O' && positions[1][1] == 'O' && positions[2][0] == 'O')) return true;
+            
         return false;
     }
 }

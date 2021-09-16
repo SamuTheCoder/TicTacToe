@@ -8,7 +8,8 @@ public class JoguinhoGalo {
     final static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         int opt = 0;
- 
+        TicTac game = new TicTac();
+        
         while(opt != 3){
             int choosePlayer = 0; //Even - Player 1 | Odd - Player 2
             int play;
@@ -27,9 +28,8 @@ public class JoguinhoGalo {
             }
 
             if (opt == 1){
-                TicTac game = new TicTac();
                 
-                while(game.IsOver()){
+                while(!game.IsOver()){
                     System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXX");
 
                     System.out.println("1|2|3");
@@ -49,7 +49,12 @@ public class JoguinhoGalo {
                     play = sc.nextInt();
 
                     game.Change(play, choosePlayer);                   
-                    if(game.IsOver()) System.out.println("Player " + choosePlayer + " has won the game!");
+                    if(game.IsOver()) {
+                        game.PrintGame();
+                        System.out.println("Player " + choosePlayer + " has won the game!");
+                    }
+                    if(choosePlayer == 0) choosePlayer = 1;
+                    else choosePlayer = 0;
                 }          
 
             } else return;
